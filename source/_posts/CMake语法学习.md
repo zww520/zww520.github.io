@@ -81,14 +81,9 @@ unset(VAR_NAME CACHE)
 条件判断
 
 ```cmake
-set(RESULT 1)
-
 if(${RESULT} EQUAL 1)
-    message("RESULT is 1")
 elseif(${RESULT} EQUAL 2)
-    message("RESULT is 2")
 else()
-    message("RESULT is not 1 or 2")
 endif()
 ```
 
@@ -96,7 +91,6 @@ endif()
 
 ```cmake
 if(2 GREATER 1)
-    message("RESULT ok")
 endif()
 ```
 
@@ -104,7 +98,6 @@ endif()
 
 ```cmake
 if(1 EQUAL 1)
-    message("RESULT ok")
 endif()
 ```
 
@@ -112,7 +105,6 @@ endif()
 
 ```cmake
 if(1 LESS 2)
-    message("RESULT ok")
 endif()
 ```
 
@@ -120,7 +112,6 @@ endif()
 
 ```cmake
 if(2 GREATER_EQUAL 2)
-    message("RESULT ok")
 endif()
 ```
 
@@ -128,7 +119,6 @@ endif()
 
 ```cmake
 if(1 LESS_EQUAL 2)
-    message("RESULT ok")
 endif()
 ```
 
@@ -136,15 +126,12 @@ endif()
 
 ```cmake
 if(1 LESS_EQUAL 2 AND 2 LESS_EQUAL 2)
-    message("RESULT ok")
 endif()
 
 if(1 LESS_EQUAL 2 OR 3 LESS_EQUAL 2)
-    message("RESULT ok")
 endif()
 
 if(NOT 3 LESS_EQUAL 2)
-    message("RESULT ok")
 endif()
 ```
 
@@ -410,9 +397,9 @@ set(VAR_LIST "item1" "item2" "item3")
 
 添加新元素到列表变量
 
-```cmake
+···cmake
 set(VAR_LIST ${VAR_LIST} "item4" "item5")
-```
+···
 
 设置临时环境变量
 
