@@ -415,7 +415,7 @@ search:
 banner:
   # 是否开启所有页面的随机头图，仅在页面对应 banner_img 为空时生效，将图片放在 source/img/random/ 目录下
   # Enable random banner for all pages, only works when banner_img is empty, put images in the directory `source/img/random/`
-  random_img: false
+  random_img: true
 
   # 视差滚动，图片与板块会随着屏幕滚动产生视差效果
   # Scrolling parallax
@@ -559,7 +559,7 @@ index:
 # Post Page
 #---------------------------
 post:
-  banner_img: /img/Zenitsu-Agatsuma.png
+  banner_img: ""
   banner_img_height: 70
   banner_mask_alpha: 0.3
 
