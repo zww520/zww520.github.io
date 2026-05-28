@@ -27,7 +27,7 @@
 <meta property="og:description" content="CMake语法学习">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-24T16:43:48.000Z">
-<meta property="article:modified_time" content="2026-05-27T16:15:40.598Z">
+<meta property="article:modified_time" content="2026-05-28T14:30:53.564Z">
 <meta property="article:author" content="zww520">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="CMake">
@@ -297,8 +297,8 @@
 
   
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+<div id="banner" class="banner" parallax=true data-random-banner='/img/random/1028801.jpg,/img/random/1311796.png,/img/random/1317094.png,/img/random/1319293.jpeg,/img/random/1331367.png,/img/random/1343746.png,/img/random/1343747.png,/img/random/1355088.jpeg,/img/random/1355096.jpeg,/img/random/221754.gif,/img/random/221968.gif,/img/random/333580.jpg,/img/random/524092.jpg,/img/random/598673.jpg,/img/random/602575.png,/img/random/704387.png,/img/random/719179.png,/img/random/736461.png,/img/random/736462.png,/img/random/737474.png,/img/random/742320.png,/img/random/820043.jpg,/img/random/973967.jpg,/img/random/default.png'
+     style="background: url('/img/random/1028801.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -327,7 +327,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.6k 字
+          4.2k 字
         
       </span>
     
@@ -338,7 +338,7 @@
         
         
         
-          38 分钟
+          35 分钟
         
       </span>
     
@@ -356,6 +356,19 @@
   </div>
 </div>
 
+
+  <script>
+    (function() {
+      var banner = document.getElementById('banner');
+      if (!banner) return;
+      var list = banner.getAttribute('data-random-banner');
+      if (!list) return;
+      list = list.split(',').filter(Boolean);
+      if (list.length === 0) return;
+      var pick = list[Math.floor(Math.random() * list.length)];
+      banner.style.backgroundImage = "url('" + pick + "')";
+    })();
+  </script>
 
 
 </div>
@@ -413,25 +426,25 @@
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">unset</span>(VAR_NAME CACHE)<br></code></pre></td></tr></table></figure>
 
 <h3 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h3><p>条件判断</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">set</span>(RESULT <span class="hljs-number">1</span>)<br><br><span class="hljs-keyword">if</span>(<span class="hljs-variable">$&#123;RESULT&#125;</span> <span class="hljs-keyword">EQUAL</span> <span class="hljs-number">1</span>)<br>    <span class="hljs-keyword">message</span>(<span class="hljs-string">&quot;RESULT is 1&quot;</span>)<br><span class="hljs-keyword">elseif</span>(<span class="hljs-variable">$&#123;RESULT&#125;</span> <span class="hljs-keyword">EQUAL</span> <span class="hljs-number">2</span>)<br>    <span class="hljs-keyword">message</span>(<span class="hljs-string">&quot;RESULT is 2&quot;</span>)<br><span class="hljs-keyword">else</span>()<br>    <span class="hljs-keyword">message</span>(<span class="hljs-string">&quot;RESULT is not 1 or 2&quot;</span>)<br><span class="hljs-keyword">endif</span>()<br></code></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">if</span>(<span class="hljs-variable">$&#123;RESULT&#125;</span> <span class="hljs-keyword">EQUAL</span> <span class="hljs-number">1</span>)<br><span class="hljs-keyword">elseif</span>(<span class="hljs-variable">$&#123;RESULT&#125;</span> <span class="hljs-keyword">EQUAL</span> <span class="hljs-number">2</span>)<br><span class="hljs-keyword">else</span>()<br><span class="hljs-keyword">endif</span>()<br></code></pre></td></tr></table></figure>
 
 <p>大于判断</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">if</span>(<span class="hljs-number">2</span> <span class="hljs-keyword">GREATER</span> <span class="hljs-number">1</span>)<br>    <span class="hljs-keyword">message</span>(<span class="hljs-string">&quot;RESULT ok&quot;</span>)<br><span class="hljs-keyword">endif</span>()<br></code></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">if</span>(<span class="hljs-number">2</span> <span class="hljs-keyword">GREATER</span> <span class="hljs-number">1</span>)<br><span class="hljs-keyword">endif</span>()<br></code></pre></td></tr></table></figure>
 
 <p>等于判断</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">if</span>(<span class="hljs-number">1</span> <span class="hljs-keyword">EQUAL</span> <span class="hljs-number">1</span>)<br>    <span class="hljs-keyword">message</span>(<span class="hljs-string">&quot;RESULT ok&quot;</span>)<br><span class="hljs-keyword">endif</span>()<br></code></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">if</span>(<span class="hljs-number">1</span> <span class="hljs-keyword">EQUAL</span> <span class="hljs-number">1</span>)<br><span class="hljs-keyword">endif</span>()<br></code></pre></td></tr></table></figure>
 
 <p>小于判断</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">if</span>(<span class="hljs-number">1</span> <span class="hljs-keyword">LESS</span> <span class="hljs-number">2</span>)<br>    <span class="hljs-keyword">message</span>(<span class="hljs-string">&quot;RESULT ok&quot;</span>)<br><span class="hljs-keyword">endif</span>()<br></code></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">if</span>(<span class="hljs-number">1</span> <span class="hljs-keyword">LESS</span> <span class="hljs-number">2</span>)<br><span class="hljs-keyword">endif</span>()<br></code></pre></td></tr></table></figure>
 
 <p>大于等于判断</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">if</span>(<span class="hljs-number">2</span> <span class="hljs-keyword">GREATER_EQUAL</span> <span class="hljs-number">2</span>)<br>    <span class="hljs-keyword">message</span>(<span class="hljs-string">&quot;RESULT ok&quot;</span>)<br><span class="hljs-keyword">endif</span>()<br></code></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">if</span>(<span class="hljs-number">2</span> <span class="hljs-keyword">GREATER_EQUAL</span> <span class="hljs-number">2</span>)<br><span class="hljs-keyword">endif</span>()<br></code></pre></td></tr></table></figure>
 
 <p>小于等于判断</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">if</span>(<span class="hljs-number">1</span> <span class="hljs-keyword">LESS_EQUAL</span> <span class="hljs-number">2</span>)<br>    <span class="hljs-keyword">message</span>(<span class="hljs-string">&quot;RESULT ok&quot;</span>)<br><span class="hljs-keyword">endif</span>()<br></code></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">if</span>(<span class="hljs-number">1</span> <span class="hljs-keyword">LESS_EQUAL</span> <span class="hljs-number">2</span>)<br><span class="hljs-keyword">endif</span>()<br></code></pre></td></tr></table></figure>
 
 <p>多重判断</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">if</span>(<span class="hljs-number">1</span> <span class="hljs-keyword">LESS_EQUAL</span> <span class="hljs-number">2</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">2</span> <span class="hljs-keyword">LESS_EQUAL</span> <span class="hljs-number">2</span>)<br>    <span class="hljs-keyword">message</span>(<span class="hljs-string">&quot;RESULT ok&quot;</span>)<br><span class="hljs-keyword">endif</span>()<br><br><span class="hljs-keyword">if</span>(<span class="hljs-number">1</span> <span class="hljs-keyword">LESS_EQUAL</span> <span class="hljs-number">2</span> <span class="hljs-keyword">OR</span> <span class="hljs-number">3</span> <span class="hljs-keyword">LESS_EQUAL</span> <span class="hljs-number">2</span>)<br>    <span class="hljs-keyword">message</span>(<span class="hljs-string">&quot;RESULT ok&quot;</span>)<br><span class="hljs-keyword">endif</span>()<br><br><span class="hljs-keyword">if</span>(<span class="hljs-keyword">NOT</span> <span class="hljs-number">3</span> <span class="hljs-keyword">LESS_EQUAL</span> <span class="hljs-number">2</span>)<br>    <span class="hljs-keyword">message</span>(<span class="hljs-string">&quot;RESULT ok&quot;</span>)<br><span class="hljs-keyword">endif</span>()<br></code></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">if</span>(<span class="hljs-number">1</span> <span class="hljs-keyword">LESS_EQUAL</span> <span class="hljs-number">2</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">2</span> <span class="hljs-keyword">LESS_EQUAL</span> <span class="hljs-number">2</span>)<br><span class="hljs-keyword">endif</span>()<br><br><span class="hljs-keyword">if</span>(<span class="hljs-number">1</span> <span class="hljs-keyword">LESS_EQUAL</span> <span class="hljs-number">2</span> <span class="hljs-keyword">OR</span> <span class="hljs-number">3</span> <span class="hljs-keyword">LESS_EQUAL</span> <span class="hljs-number">2</span>)<br><span class="hljs-keyword">endif</span>()<br><br><span class="hljs-keyword">if</span>(<span class="hljs-keyword">NOT</span> <span class="hljs-number">3</span> <span class="hljs-keyword">LESS_EQUAL</span> <span class="hljs-number">2</span>)<br><span class="hljs-keyword">endif</span>()<br></code></pre></td></tr></table></figure>
 
 <p>字符串判断</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">if</span>(STRING_VAR <span class="hljs-keyword">STREQUAL</span> <span class="hljs-string">&quot;value&quot;</span>) <span class="hljs-comment"># 字符串相等</span><br><span class="hljs-keyword">if</span>(STRING_VAR <span class="hljs-keyword">MATCHES</span> <span class="hljs-string">&quot;pattern&quot;</span>) <span class="hljs-comment"># 字符串匹配正则</span><br></code></pre></td></tr></table></figure>
@@ -534,8 +547,7 @@
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">set</span>(VAR_LIST <span class="hljs-string">&quot;item1&quot;</span> <span class="hljs-string">&quot;item2&quot;</span> <span class="hljs-string">&quot;item3&quot;</span>)<br></code></pre></td></tr></table></figure>
 
 <p>添加新元素到列表变量</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">set</span>(VAR_LIST <span class="hljs-variable">$&#123;VAR_LIST&#125;</span> <span class="hljs-string">&quot;item4&quot;</span> <span class="hljs-string">&quot;item5&quot;</span>)<br></code></pre></td></tr></table></figure>
-
+<p>···cmake<br>set(VAR_LIST ${VAR_LIST} “item4” “item5”)<br>···</p>
 <p>设置临时环境变量</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">set</span>(ENV&#123;MY_ENV_VAR&#125; <span class="hljs-string">&quot;some_value&quot;</span>)<br></code></pre></td></tr></table></figure>
 
