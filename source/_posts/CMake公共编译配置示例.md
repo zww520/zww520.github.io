@@ -20,7 +20,7 @@ CMake公共编译配置
 project/
 ├── build                       编译过程文件和编译结果
 |   └── bin/debug               debug输出
-    └── bin、release            release输出
+|   └── bin/release             release输出
 ├── cmake                       通用cmake文件路径
 |   └── BuildConfig.cmake       编译配置   
 ├── logger                      库安装路径
