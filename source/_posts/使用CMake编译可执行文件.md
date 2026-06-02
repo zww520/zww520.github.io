@@ -1,5 +1,5 @@
 ---
-title: CMake公共编译配置
+title: 使用CMake编译可执行文件
 date: 2026-06-02 23:15:01
 categories:
     - CMake
