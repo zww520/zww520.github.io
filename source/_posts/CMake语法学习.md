@@ -18,9 +18,9 @@ CMake语法学习
 
 ### 生成编译配置
 
-指定在build目录生成编译配置
+指定从当前目录编译，编译结果输出在build目录
 ```shell
-cmake -B build
+cmake -B build -S .
 ```
 
 ### 编译

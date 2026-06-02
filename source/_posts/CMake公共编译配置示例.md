@@ -14,45 +14,6 @@ CMake公共编译配置
 
 ## CMake公共编译配置示例
 
-### 项目架构
-
-```text
-project/
-├── build                       编译过程文件和编译结果
-|   └── bin/debug               debug输出
-|   └── bin/release             release输出
-├── cmake                       通用cmake文件路径
-|   └── BuildConfig.cmake       编译配置   
-├── logger                      库安装路径
-|   └── include                 库头文件路径
-|       └── logger              库名称文件夹
-|           └── logger.h        库头文件
-|   └── lib                     动态库路径
-|       └── logger.so           动态库
-├── src                         源代码
-|   └── module1                 模块1
-|   └── module2                 模块2
-|   └── module3                 模块3
-|   └── CMakeLists.txt
-├── tests                       测试工程
-│   └── test_func1.cpp          单元测试1
-|   └── test_func2.cpp          单元测试2
-|   └── CMakeLists.txt
-├── build.sh                    编译脚本
-└── CMakeLists.txt
-```
-
-### 编译脚本
-
-默认编译Release版本
-
-build.sh
-```shell
-BUILD_TYPE=${1:-Release}
-cmake -B build -S . -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
-cmake --build build
-```
-
 ### CMake公共编译配置
 
 统一项目编译配置和输出路径
