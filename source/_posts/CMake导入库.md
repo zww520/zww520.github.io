@@ -1,5 +1,5 @@
 ---
-title: CMake导入静态库
+title: CMake导入库
 date: 2026-06-04 23:41:01
 categories:
     - CMake
@@ -8,11 +8,11 @@ tags:
     - C++
 ---
 
-CMake导入静态库
+CMake导入库
 
 <!-- more -->
 
-## CMake导入静态库示例
+## CMake导入库示例
 
 ### 目录结构
 
@@ -34,6 +34,8 @@ BuildStaticLibrary/
 │       └── logger_export.h        # 导出宏定义
 │   └── lib/  
 │       ├── liblogger.a            # 日志静态库
+│       ├── liblogger.so           # 日志动态库
+│       ├── liblogger.lib          # 日志动态库的导入库文件
 ```
 
 ### CMakeLists.txt
@@ -70,6 +72,8 @@ add_subdirectory(logger)
 
 ### thirdparty/logger/CMakeLists.txt
 
+导入静态库
+
 ```cmake
 add_library(logger STATIC IMPORTED) # 声明一个全局的导入库
 
@@ -78,7 +82,27 @@ set_target_properties(logger PROPERTIES # 设置库属性
     INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
-# 也可以通过这种方式，导入头文件搜索路径
+target_include_directories(logger INTERFACE
+    "${CMAKE_CURRENT_SOURCE_DIR}/include"
+)
+```
+
+导入动态库
+
+```cmake
+add_library(logger SHARED IMPORTED GLOBAL)
+
+if(MSVC)
+    set_target_properties(logger PROPERTIES 
+        IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/lib/liblogger.so
+    )
+else()
+    set_target_properties(logger PROPERTIES 
+        IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/lib/liblogger.so
+        IMPORTED_IMPLIB ${CMAKE_CURRENT_SOURCE_DIR}/lib/liblogger.lib
+    )
+endif()
+
 target_include_directories(logger INTERFACE
     "${CMAKE_CURRENT_SOURCE_DIR}/include"
 )
