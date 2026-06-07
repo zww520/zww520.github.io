@@ -44,7 +44,6 @@ Ret (*lambda2fp(Lambda&& lambda, Ret(*)(Args...)))(Args...) {
 
 }
 
-
 #define WRAP_LAMBDA(lambda, signature) \
     detail::lambda2fp(lambda, (signature)nullptr)
 ```
@@ -59,6 +58,6 @@ auto callback = WRAP_LAMBDA([invoker](){ invoker->print(); }, void(*)());
 
 ### 注意事项
 
-由于其内部是通过静态变量实现，通过一个类的多个示例，以第一个调用为准
+由于其内部是通过静态变量实现，通过一个类的多次示例化，以第一次调用为准
 
-如多个类调用callback打印类内的一个变量值，只会第一次调用类的变量值
+如多个类调用callback打印类内的一个变量值，只会打印第一次调用类的变量值
