@@ -99,9 +99,7 @@ double applyHanningWindow(double* buffer, int length)
 }
 ```
 
-
-
-#### 4. FFT计算
+#### 4. FFT计算幅度值
 
 使用PFFFT计算实信号幅度谱
 
@@ -145,6 +143,13 @@ pffftd_aligned_free(outputBuffer);
 pffftd_aligned_free(workBuffer);
 pffftd_destroy_setup(setup); // 销毁PFFFT设置
 ```
+
+#### 5.功率谱计算
+
+功率谱计算公式如下，其中 $A(k)$ 为幅度值
+$$
+P(k) = 10 \log_{10}\left( A(k)^2 \right)
+$$
 
 ### 完整代码实现
 
@@ -249,7 +254,6 @@ int main(int argc, char* argv[]) {
 ### 注意事项
 
 - 奈奎斯特频率为采样率的一半
-
 - 直流分量和奈奎斯特频率的幅度值还原时，不需要除以2
 - 对于实信号，能还原的信号频率不超过采样率$fs$的一半
 

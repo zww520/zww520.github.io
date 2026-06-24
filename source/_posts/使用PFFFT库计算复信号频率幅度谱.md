@@ -188,7 +188,7 @@ double applyHanningWindowComplex(double* buffer, int length)
 
 
 
-#### 4. FFT计算
+#### 4. FFT计算后计算幅度
 
 使用PFFFT计算实信号幅度谱
 
@@ -233,6 +233,13 @@ void calculateComplexSignalAmplitudeSpectrum(double* buffer, int length, double*
     pffftd_aligned_free(workBuffer);
     pffftd
 ```
+
+#### 5.功率谱计算
+
+功率谱计算公式如下，其中 $A(k)$ 为幅度值
+$$
+P(k) = 10 \log_{10}\left( A(k)^2 \right)
+$$
 
 ### 完整代码实现
 
@@ -389,4 +396,3 @@ int main(int argc, char* argv[]) {
 - 对于复信号，能还原的信号频率不超过采样率$fs$的一半
 - 对于复信号，能表示的带宽为$fs$，范围为$[-fs/2, fs/2]$
 - 对于复信号，FFT执行完后，需要进行**fftshift**才能还原频谱
-
